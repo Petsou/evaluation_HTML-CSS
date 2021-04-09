@@ -1,0 +1,278 @@
+/********On commence par initialiser la page************/
+
+*{
+    margin:0;
+    font-family: 'Open Sans', sans-serif; /*J'applique un style d'écriture sur toute la page pris sur le site Google Font*/
+}
+
+/*Je commence par appliquer la propriété flex à mon body pour faciliter la gestion de déplacement de mes
+trois conteneur prncipale #header #corps et #pied. Ensuite, je les dispose en colonne grâce à la propriété
+flex-direction puis le centre le contenu de ceux-ci à la page.*/
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(8, 8, 8);
+}
+/******** HEADER **********/
+
+#header{
+    display: flex;
+    justify-content: center;
+    width:100%;
+    height: auto;
+    background-color: white;
+}
+
+/*Le but ici est de placer tout mes éléments dans une div #tete pour qui fait 75% de la largeur du body que
+j'ai centré grâce aux propriété flex.*/ 
+
+#tete{
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    height: auto;
+    background-color: white;
+    box-shadow: 1px 1px 10px black;
+
+}
+
+/*Ici, je définis la partie gauche de la div #tete qui prends 50% de la div #tete grâce à flex:0.5 qui contient 
+le logo et un paragraphe en dessous*/
+
+.logo{
+    display: flex;
+    flex:0.5;
+    padding: 20px;
+    flex-direction: column;
+    border-left: 2px solid rgb(255, 166, 0);
+}
+
+.logo > img{
+    flex:1 1 75%;
+    height: auto;
+}
+
+.logo > p{
+    font-weight: bold;
+    flex:1 1 25%;
+    margin-top: 20px;
+}
+
+.logo > p > span{
+    color: orange;
+}
+
+/*Là, on a la partie droite de #tete.*/
+
+#utilisateur{
+    display: flex;
+    flex:0.5;
+    flex-direction: column;
+}
+
+.boite-user{
+    display: flex;
+    justify-content: space-between;
+    margin:10px;
+    padding-left:20px;
+    padding-right:10px;
+}
+
+#utilisateur > p{
+    padding:0px 10px 10px 10px;
+    text-align: right;
+    font-size: 20px;
+}
+
+#liens{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#liens > a {
+    flex: 1 1 auto;
+    text-decoration: none;
+    color: black;
+    padding:15px;
+    font-size: 17px;
+    border-left: 1px solid gray;
+}
+
+.compte > a{
+    font-weight: bolder;
+    color: gray;
+    text-decoration: none;
+}
+
+.panier > a{
+    font-weight: bold;
+    color: gray;
+    text-decoration: none;
+}
+
+/************** Corps de la page **************/
+
+/*Ici même principe que pour le conteneur #header, je dispose me conteneur en colonne*/
+
+#corps{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:75%;
+    height: auto;
+    background-color: whitesmoke;   
+}
+
+#corps > img{
+    width: 100%; /*J'ajuste à 100% la largeur de l'image à celle de son conteneur mais je laisse la hauteur original l'image.*/
+}
+
+.conteneur{
+    display: flex;
+    flex-wrap: wrap; /*Pour que les élements qui dépasse la largeur du conteneur se place en dessous des autres*/    justify-content: center;
+}
+
+.element{
+    display: flex;
+    flex-direction: row;
+    flex:1 1 auto; /*Pour que mes éléments prennent tout l'espace disponible dans le conteneur.*/
+    margin:20px;
+    justify-content: center;
+    
+}
+
+.element > img{
+    align-self: center;
+    width:60%;
+    height: 100%;
+}
+
+.article{
+    box-shadow: 1px 1px 10px black;
+    width: 80%;
+    height: auto;
+}
+
+.voir{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.prix{
+    display: flex;
+    justify-content: space-between;
+}
+
+.barre{
+    font-size: 20px;
+    margin-right: 20px;
+    font-weight: bold;
+    text-decoration: line-through;
+}
+
+.reduc{
+    font-size: 30px;
+    font-weight: bolder;
+    color:orange;
+}
+
+button{
+    font-size: 20px;
+    padding:10px 20px 10px 20px;
+    background-color: rgb(8, 8, 8);
+    color: white;
+}
+
+.description{
+    margin-top: -26px; /*J'utilise une marge négative pour que le paragraphe se superpose au bas de l'image.*/
+    font-size: 1.05em;
+    text-align: center;
+}
+
+/*Ici j'utilise des éléments spans pour placer mes réductions sur mes articles et j'applique une marge négative
+pour qu'ils se superposent aux div .elements.*/
+
+.promo{
+    position: relative;
+    top:20px;
+}
+
+.promo > span{
+    margin-left: -40px;
+    box-shadow: 1px 1px 10px black;
+    background-color: rgb(15, 15, 15);
+    font-size: 30px;
+    padding: 5px;
+    font-weight: bolder;
+    color: orange;
+}
+
+/************* Pied de la page ***************/
+
+/*Pour la disposition des éléments, même principe que pour #header et #corps.*/
+
+#pied{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    background-color: rgb(50, 50, 50);
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    list-style: square;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+}
+
+li{
+    font-size: 20px;
+    margin: 20px;
+}
+
+ul > li > a{
+    text-decoration: none;
+    color: black;
+}
+
+.conteneur-pied{
+    display: flex;
+    justify-content: center;
+    width: 75%;
+    height: auto;   
+}
+
+.element-conteneur-pied{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.element-conteneur-pied > img{
+    flex:0.3 1 auto; /*Taille égale à 30% de la taille d'origine.*/
+}
+
+.element-conteneur-pied > p{
+    margin:10px;
+    color: whitesmoke;
+    text-align: center;
+}
+
+.conteneur-pied > a{
+    margin:20px 50px 20px 50px;
+}
+
+.conteneur-pied > p{
+    margin-top: 30px;
+    color: whitesmoke;
+}
